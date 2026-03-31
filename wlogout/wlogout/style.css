@@ -1,0 +1,57 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(30, 30, 46, 0.90);
+}
+
+button {
+	font-family: "DepartureMono Nerd Font", monospace;
+	border-color: rgba(116, 199, 236, 0.4);
+	color: #cdd6f4;
+	background-color: rgba(24, 24, 37, 0.8);
+	border-style: solid;
+	border-width: 5px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 35%;
+	margin: 8px;
+	transition: background-color 0.2s ease,
+		border-color 0.2s ease,
+		background-size 0.2s ease;
+}
+
+button:focus,
+button:active,
+button:hover {
+	background-color: rgba(48, 50, 66, 0.95);
+	border-color: #74c7ec;
+	background-size: 40%;
+	outline-style: none;
+}
+
+#lock {
+	background-image: url("/home/coosper/.config/wlogout/icons/lock.svg");
+}
+
+#logout {
+	background-image: url("/home/coosper/.config/wlogout/icons/logout.svg");
+}
+
+#suspend {
+	background-image: url("/home/coosper/.config/wlogout/icons/suspend.svg");
+}
+
+#hibernate {
+	background-image: url("/home/coosper/.config/wlogout/icons/hibernate.svg");
+}
+
+#shutdown {
+	background-image: url("/home/coosper/.config/wlogout/icons/shutdown.svg");
+}
+
+#reboot {
+	background-image: url("/home/coosper/.config/wlogout/icons/reboot.svg");
+}

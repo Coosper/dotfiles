@@ -1,0 +1,16 @@
+show=drun
+width=650
+height=450
+term=kitty
+hide_scroll=true
+insensitive=true
+allow_images=true
+image_size=34
+columns=2
+prompt=Search Applications...
+filter_rate=100
+key_expand=Tab
+no_actions=true
+gtk_dark=true
+layer=overlay
+allow_markup=true

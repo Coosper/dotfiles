@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "source": "~/.config/fastfetch/ASCII/cat.txt",
+    "padding": { "top": 2, "right": 2 }   // tighter so it doesn't push text off-screen
+  },
+
+  "display": {
+    "separator": "  "                     // width-safe separator (no wide bullets)
+  },
+
+  "modules": [
+    "break","break",
+
+    // TITLE
+    { "type": "title", "color": { "user": "32", "at": "37", "host": "32" } },
+
+    "break",
+
+    // SYSTEM
+    { "type": "custom", "format": "\u001b[90m┌──────────── System ────────────┐" },
+    { "type": "os",       "key": "distribution    ", "keyColor": "33" },
+    { "type": "kernel",   "key": "linux kernel    ", "keyColor": "33" },
+    { "type": "packages", "key": "packages        ", "keyColor": "33", "format": "{} (pacman)" },
+    { "type": "shell",    "key": "unix shell      ", "keyColor": "33" },
+    { "type": "terminal", "key": "terminal        ", "keyColor": "33" },
+    { "type": "wm",       "key": "window manager  ", "keyColor": "33", "format": "{1} ({3})" },
+    { "type": "custom",   "format": "\u001b[90m└────────────────────────────────┘" },
+
+    "break",
+
+    // HARDWARE
+    { "type": "custom", "format": "\u001b[90m┌─────────── Hardware ───────────┐" },
+    { "type": "cpu",     "key": "processor       ", "keyColor": "33" },
+    { "type": "gpu",     "key": "graphics card   ", "keyColor": "33" }, // no custom format = reliable model output
+    { "type": "memory",  "key": "system memory   ", "keyColor": "33", "format": "{2} / {1} ({3})" }, // used/total (%)
+    { "type": "custom",  "format": "\u001b[90m└────────────────────────────────┘" },
+
+    "break",
+
+    // COLORS (ASCII = width-safe)
+    { "type": "colors", "paddingLeft": 2, "symbol": "ascii" },
+
+    "break","break"
+  ]
+}

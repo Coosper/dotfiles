@@ -1,0 +1,139 @@
+// -*- mode: jsonc -*-
+// ═════════════════════════════════════ //
+//            COOSPER'S WAYBAR          //
+// ═════════════════════════════════════ //
+{
+  // ═════════════════════════════════════ //
+  //               SECTION: GLOBAL         //
+  // ═════════════════════════════════════ //	
+	"layer": "top",            // Waybar at top layer
+	"position": "top",      // Waybar position (top|bottom|left|right)
+	"height": 40,                 // Waybar height (remove for auto)
+	"width": 1920,             // Waybar width
+	"spacing": 4,                 // Gaps between modules (px)
+
+  // ═════════════════════════════════════ //
+  //       SECTION: LAYOUT & ORDER         //
+  // ═════════════════════════════════════ //
+  "modules-left": [
+    "hyprland/workspaces", 
+    "custom/cava",
+  ],
+  "modules-center": [
+	"clock",
+	],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "battery",
+    "custom/power"
+  ],
+
+  // ═════════════════════════════════════ //
+  //       SECTION: SWAY INTEGRATIONS      //
+  // ═════════════════════════════════════ //
+
+	"hyprland/workspaces": {
+	  "disable-scroll": true,
+ 	 "warp-on-scroll": false,
+ 	 "all-outputs": true,
+ 	 "active-only": false,
+ 	 "persistent-workspaces": {
+   	 "*": [1, 2, 3, 4, 5]
+ 	 },
+ 	 "format": "{icon}",
+ 	 "format-icons": {
+   	 "active.": "",
+   	 "default": ""
+ 	 },
+ 	 "workspaces": [1, 2, 3, 4, 5],
+        	"sort-by-number": true
+	},
+
+
+  // ═════════════════════════════════════ //
+  //       SECTION: MEDIA & AUDIO          //
+  // ═════════════════════════════════════ //
+
+"pulseaudio": {
+  "scroll-step": 2,
+  "format": "{icon}  {volume}%",
+  "format-muted": "muted",
+  "tooltip": false,
+  "max-volume": 100,
+  "on-click": "pavucontrol",
+  "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  "on-click-middle": "pactl set-sink-volume @DEFAULT_SINK@ 100%",
+  "format-icons": ["", "", ""]
+},
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // See resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  },
+
+  // ═════════════════════════════════════ //
+  //        SECTION: TIME & CALENDAR       //
+  // ═════════════════════════════════════ //
+
+	"clock": {
+	  "timezone": "Europe/Dublin",
+ 	  "format": " {:%H:%M  :%d %b %Y}",        // Example:  16:45  21 Sep 2025
+	  "format-alt": "{:%Y-%m-%d}",                 // Example: 2025-09-21
+ 	  "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+
+
+  // ═════════════════════════════════════ //
+  //           SECTION: MISC / UI          //
+  // ═════════════════════════════════════ //
+
+  "tray": {
+	"icon-size": 21,
+	"spacing": 10,
+	"icons": {
+	"blueman": "bluetooth",
+	"TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+	 }
+	},
+
+"custom/playerinfo": {
+            "format": "&lt; {} &gt;",
+            "exec": "~/.config/waybar/modules/playerinfo.sh",
+            "escape": true,
+            "return-type": "json",
+            "interval": 1,
+            "tooltip": true,
+            "on-click-middle": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-click-left": "playerctl previous"
+        },
+
+"custom/cava": {
+	"format": "{}",
+	"exec": "~/.config/waybar/modules/cava.sh",
+	},
+
+
+}

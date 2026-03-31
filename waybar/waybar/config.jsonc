@@ -1,0 +1,157 @@
+// -*- mode: jsonc -*-
+// ═════════════════════════════════════ //
+//            COOSPER'S WAYBAR          //
+// ═════════════════════════════════════ //
+{
+  // ═════════════════════════════════════ //
+  //               SECTION: GLOBAL         //
+  // ═════════════════════════════════════ //
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 36, // Waybar height (remove for auto)
+  "width": 2560, // Waybar width
+  "spacing": 4,
+  "output": "DP-1",
+  // ═════════════════════════════════════ //
+  //       SECTION: LAYOUT & ORDER         //
+  // ═════════════════════════════════════ //
+  "modules-left": [
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "custom/audio_toggle",
+    "custom/updates",
+    "tray",
+    "custom/power"
+  ],
+  // ═════════════════════════════════════ //
+  //       SECTION: SWAY INTEGRATIONS      //
+  // ═════════════════════════════════════ //
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "warp-on-scroll": false,
+    "all-outputs": true,
+    "active-only": false,
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "workspaces": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sort-by-number": true
+  },
+  // ═════════════════════════════════════ //
+  //       SECTION: MEDIA & AUDIO          //
+  // ═════════════════════════════════════ //
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon}  {volume}%",
+    "format-muted": "muted",
+    "tooltip": false,
+    "max-volume": 100,
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "pactl set-sink-volume @DEFAULT_SINK@ 100%",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "mpris": {
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon}  {dynamic}",
+    "format-stopped": "",
+    "dynamic-order": [
+      "title",
+      "artist"
+    ],
+    "dynamic-separator": " — ",
+    "title-len": 25,
+    "artist-len": 25,
+    "max-length": 55,
+    "preferred-player": "spotify",
+    "ignored-players": ["firefox", "chromium", "brave"],
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip": true,
+    "tooltip-format": "{title}\n{artist}\n{album}",
+    "player-icons": {
+      "default": "",
+      "spotify": ""
+    },
+    "status-icons": {
+      "paused": ""
+    }
+  },
+  // ═════════════════════════════════════ //
+  //        SECTION: TIME & CALENDAR       //
+  // ═════════════════════════════════════ //
+  "clock": {
+    "timezone": "Europe/Dublin",
+    "format": " {:%H:%M  %d %b %Y}", 
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  // ═════════════════════════════════════ //
+  //           SECTION: MISC / UI          //
+  // ═════════════════════════════════════ //
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "icons": {
+      "blueman": "bluetooth",
+      "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "wlogout" // run wlogout when clicked
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰣇"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+  "custom/audio_toggle": {
+    "format": "{text}",
+    "exec": "~/.config/waybar/modules/audio-toggle.sh --status",
+    "return-type": "json",
+    "on-click": "~/.config/waybar/modules/audio-toggle.sh",
+    "interval": 3,
+    "tooltip": true
+  },
+"custom/steam-download": {
+    "exec": "~/.config/waybar/modules/steam-percent.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": " {}",
+    "on-click": "steam steam://nav/downloads"
+}
+}
