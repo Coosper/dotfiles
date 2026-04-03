@@ -1,0 +1,4 @@
+#!/bin/bash
+hyprlock --config ~/.dotfiles/hypr/hypr/hyprlock-restart.conf &
+sleep 6
+systemctl reboot
