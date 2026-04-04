@@ -51,13 +51,11 @@
 @define-color	crust  #11111b;
 @define-color	crust-rgb  rgb(17, 17, 27);
 
-/* ── palette omitted — keep your @define-color block as-is ── */
 
 * {
   font-family: 'JetBrainsMono Nerd Font', monospace;
   font-size: 15px;
   background-color: @base;
-  /* inherit once, stop repeating it */
   color: @text;
 }
 
@@ -76,7 +74,6 @@ window {
   padding: 5px;
   border: 5px solid @blue;
   animation: fadeIn 0.18s ease-out both;
-  /* one animation, faster */
 }
 
 #outer-box {
@@ -101,11 +98,9 @@ window {
   outline: none;
   color: @text;
   caret-color: @blue;
-  /* blue text cursor */
 }
 
 #input entry {
-  /* targeted, no !important */
   outline: 4px solid @blue;
 }
 
@@ -120,18 +115,16 @@ window {
 
 #entry {
   border: 0.13em solid transparent;
-  /* reserve border space so layout doesn't shift */
 }
 
 #entry:hover {
-  /* hover state was missing entirely */
+
   background-color: @surface0;
   border-color: @overlay0;
 }
 
 #entry:selected {
   background-color: @surface1;
-  /* fill, not just a border */
   border-color: @blue;
 }
 
@@ -141,7 +134,6 @@ window {
 
 #entry:drop(active) {
   background-color: @surface2;
-  /* was @blue — text became unreadable */
   border-color: @blue;
 }
 
