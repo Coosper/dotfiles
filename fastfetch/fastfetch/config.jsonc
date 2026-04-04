@@ -3,11 +3,11 @@
 
   "logo": {
     "source": "~/.config/fastfetch/ASCII/cat.txt",
-    "padding": { "top": 2, "right": 2 }   // tighter so it doesn't push text off-screen
+    "padding": { "top": 2, "right": 2 }   
   },
 
   "display": {
-    "separator": "  "                     // width-safe separator (no wide bullets)
+    "separator": "  "                     
   },
 
   "modules": [
