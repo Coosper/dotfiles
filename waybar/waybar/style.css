@@ -35,7 +35,7 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-#custom-power {
+#custom-power, #custom-swaync {
   padding-right: 1rem;
 }
 
@@ -124,4 +124,15 @@
   background: rgba(243, 139, 168, 0.15);
   color: @red;
   border-bottom-color: @red;
+}
+
+#custom-swaync {
+  color: @green;
+  border-bottom-color: @green;
+}
+
+#custom-swaync.dnd-none,
+#custom-swaync.dnd-notification {
+  color: @overlay0;
+  border-bottom-color: @overlay0;
 }

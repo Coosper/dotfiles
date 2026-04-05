@@ -1,0 +1,415 @@
+* {
+  font-family: "DepartureMono Nerd Font", monospace;
+  font-size: 13.5px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  color: #cdd6f4;
+  /* @text */
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+
+/* ── windows ──────────────────────────────────────────────── */
+.blank-window,
+blankwindow,
+notificationwindow,
+.floating-notifications,
+window.background,
+.background {
+  background: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* ── control center panel ─────────────────────────────────── */
+.control-center {
+  background: rgba(24, 24, 37, 0.96);
+  border-left: 1px solid rgba(137, 180, 250, 0.10);
+  border-bottom: 1px solid rgba(137, 180, 250, 0.10);
+}
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: rgba(137, 180, 250, 0.12);
+  border-radius: 0;
+  min-width: 2px;
+}
+
+scrollbar slider:hover {
+  background: rgba(137, 180, 250, 0.25);
+}
+
+/* ── title ────────────────────────────────────────────────── */
+.widget-title {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+  background: rgba(137, 180, 250, 0.04);
+}
+
+.widget-title>label {
+  color: #89b4fa;
+  /* @blue */
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.widget-title>button {
+  color: #6c7086;
+  /* overlay0 */
+  padding: 0.1rem 0.5rem;
+  background: rgba(69, 71, 90, 0.40);
+  border: 1px solid rgba(69, 71, 90, 0.80);
+  transition: all 0.2s ease;
+}
+
+.widget-title>button:hover {
+  color: #f38ba8;
+  /* @red */
+  background: rgba(243, 139, 168, 0.10);
+  border-color: rgba(243, 139, 168, 0.40);
+}
+
+/* ── dnd ──────────────────────────────────────────────────── */
+.widget-dnd {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+}
+
+.widget-dnd>label {
+  color: #a6adc8;
+  /* subtext0 */
+  font-size: 12.5px;
+}
+
+.widget-dnd>switch {
+  background: #313244;
+  /* surface0 */
+  border: 1px solid #45475a;
+  border-radius: 0;
+  min-width: 40px;
+  min-height: 20px;
+}
+
+.widget-dnd>switch:checked {
+  background: rgba(249, 226, 175, 0.20);
+  /* @yellow tinted */
+  border-color: #f9e2af;
+}
+
+.widget-dnd>switch slider {
+  background: #585b70;
+  /* surface2 */
+  border-radius: 0;
+  min-width: 16px;
+  min-height: 16px;
+  margin: 1px;
+}
+
+.widget-dnd>switch:checked slider {
+  background: #f9e2af;
+  /* @yellow */
+}
+
+/* ── mpris ────────────────────────────────────────────────── */
+.widget-mpris {
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+  padding: 0;
+}
+
+.widget-mpris>box>button {
+  color: #45475a;
+  /* surface1 */
+  background: transparent;
+  padding: 0 0.3rem;
+  min-width: 24px;
+}
+
+.widget-mpris>box>button:hover {
+  color: #cba6f7;
+}
+
+.widget-mpris .widget-mpris-player {
+  background: rgba(203, 166, 247, 0.04);
+  border-left: 3px solid #cba6f7;
+  /* @mauve */
+  margin: 0.4rem 0.75rem;
+}
+
+.widget-mpris .widget-mpris-player .mpris-background {
+  filter: blur(0px);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay {
+  padding: 10px 12px;
+  background: rgba(24, 24, 37, 0.85);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+  margin-right: 20px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.widget-mpris .widget-mpris-title {
+  color: #cba6f7;
+  /* @mauve */
+  font-size: 13.5px;
+}
+
+.widget-mpris .widget-mpris-subtitle {
+  color: #6c7086;
+  /* overlay0 */
+  font-size: 12px;
+}
+
+.widget-mpris .mpris-overlay button {
+  color: #585b70;
+  /* surface2 */
+  background: transparent;
+  padding: 0 0.3rem;
+  transition: color 0.15s ease;
+}
+
+.widget-mpris .mpris-overlay button:hover {
+  color: #cba6f7;
+  /* @mauve */
+  background: rgba(203, 166, 247, 0.10);
+}
+
+/* mpris carousel dots */
+.widget-mpris>box>image {
+  color: #45475a;
+}
+
+/* ── volume ───────────────────────────────────────────────── */
+.widget-volume {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+}
+
+.widget-volume>box>image {
+  min-width: 0;
+  min-height: 0;
+  opacity: 0;
+}
+
+.widget-volume>label {
+  color: #74c7ec;
+  /* @sapphire */
+  border-bottom: 2px solid #74c7ec;
+  padding-right: 0.6rem;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.widget-volume scale {
+  padding: 0;
+}
+
+.widget-volume scale trough {
+  background: #1e1e2e;
+  /* base */
+  border: 1px solid #313244;
+  min-height: 3px;
+}
+
+.widget-volume scale trough highlight {
+  background: #74c7ec;
+  /* @sapphire */
+}
+
+.widget-volume scale slider {
+  background: #cdd6f4;
+  /* @text */
+  border: 2px solid #74c7ec;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+/* ── buttons grid ─────────────────────────────────────────── */
+.widget-buttons-grid {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+}
+
+.widget-buttons-grid>flowbox>flowboxchild {
+  background: transparent;
+  padding: 0.15rem;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background: rgba(49, 50, 68, 0.60);
+  /* surface0 */
+  color: #a6adc8;
+  /* subtext0 */
+  border: 1px solid #313244;
+  border-bottom: 2px solid #45475a;
+  padding: 0.35rem 0.5rem;
+  transition: all 0.15s ease;
+  min-width: 90px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: rgba(137, 180, 250, 0.08);
+  color: #89b4fa;
+  /* @blue */
+  border-color: rgba(137, 180, 250, 0.30);
+  border-bottom-color: #89b4fa;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:active {
+  background: rgba(137, 180, 250, 0.15);
+}
+
+/* ── notifications ────────────────────────────────────────── */
+.notification-row {
+  padding: 0.2rem 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: transparent;
+}
+
+.notification-row .notification-background {
+  padding: 0 0.5rem;
+}
+
+.notification {
+  background: rgba(30, 30, 46, 0.95);
+  border-left: 3px solid #89b4fa;
+  /* @blue */
+  border-bottom: 1px solid rgba(137, 180, 250, 0.06);
+}
+
+.notification.low {
+  border-left-color: #a6e3a1;
+}
+
+/* @green */
+.notification.normal {
+  border-left-color: #89b4fa;
+}
+
+/* @blue  */
+.notification.critical {
+  border-left-color: #f38ba8;
+  /* @red */
+  background: rgba(243, 139, 168, 0.06);
+}
+
+.notification-default-action {
+  padding: 0.5rem 0.6rem;
+  background: transparent;
+  transition: background 0.15s ease;
+}
+
+.notification-default-action:hover {
+  background: rgba(137, 180, 250, 0.06);
+}
+
+.notification-content {
+  padding: 0;
+}
+
+.notification-icon {
+  padding: 0 0.6rem 0 0;
+  color: #6c7086;
+  /* overlay0 */
+}
+
+.summary {
+  color: #cdd6f4;
+  /* @text */
+  font-size: 13.5px;
+}
+
+.time {
+  color: #45475a;
+  /* surface1 */
+  font-size: 11.5px;
+}
+
+.body {
+  color: #6c7086;
+  /* overlay0 */
+  font-size: 12.5px;
+}
+
+.notification-action {
+  color: #89b4fa;
+  /* @blue */
+  background: rgba(30, 30, 46, 0.95);
+  border-top: 1px solid rgba(137, 180, 250, 0.06);
+  padding: 0.2rem 0.6rem;
+  transition: background 0.15s ease;
+}
+
+.notification-action:hover {
+  background: rgba(137, 180, 250, 0.08);
+}
+
+.notification-action:first-child {
+  border-right: 1px solid rgba(137, 180, 250, 0.06);
+}
+
+/* ── close button ─────────────────────────────────────────── */
+.close-button {
+  color: #45475a;
+  /* surface1 */
+  background: transparent;
+  padding: 0 0.3rem;
+  min-width: 20px;
+  min-height: 20px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.close-button:hover {
+  color: #f38ba8;
+  /* @red */
+  background: rgba(243, 139, 168, 0.10);
+}
+
+/* ── notification groups ──────────────────────────────────── */
+.notification-group-headers {
+  color: #89b4fa;
+  /* @blue */
+  padding: 0.2rem 0.75rem;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+  background: rgba(137, 180, 250, 0.03);
+}
+
+.notification-group-icon {
+  color: #89b4fa;
+}
+
+.notification-group-collapse-button {
+  color: #45475a;
+  background: transparent;
+  padding: 0 0.4rem;
+  transition: color 0.15s ease;
+}
+
+.notification-group-collapse-button:hover {
+  color: #89b4fa;
+}
+
+/* ── empty state ──────────────────────────────────────────── */
+.control-center-placeholder {
+  color: #313244;
+  /* surface0 */
+  padding: 2rem 0.75rem;
+}
+
+/* ── notification thumbnail ───────────────────────────────── */
+.notification-thumbnail {
+  margin: 0 0.5rem 0 0;
+  min-width: 48px;
+  min-height: 48px;
+}
