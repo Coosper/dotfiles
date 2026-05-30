@@ -1,7 +1,8 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "ignore-gtk-theme": true,
-  "output": "DP-1",
+  "notification-window-preferred-output": "DP-1",
+  "control-center-preferred-output": "DP-1",
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
@@ -72,12 +73,12 @@
       "buttons-per-row": 2,
       "actions": [
         {
-          "label": "⏻  POWER",
-          "command": "wlogout"
+          "label": "⏻ POWER",
+	  "command": "bash -c '/home/coosper/.dotfiles/AGS/launch-powermenu.sh'"
         },
         {
-          "label": "󰂯  OUTPUT",
-          "command": "foot -e bluetuith"
+          "label": "󰋋 OUTPUT",
+          "command": "~/.dotfiles/waybar/waybar/modules/audio-toggle.sh"
         }
       ]
     }

@@ -2,7 +2,7 @@
 
 # Device names
 HEADPHONES="alsa_output.usb-Logitech_PRO_X_000000000000-00.analog-stereo"
-SPEAKERS="alsa_output.pci-0000_2d_00.1.hdmi-stereo-extra1"
+SPEAKERS="alsa_output.pci-0000_2f_00.4.analog-stereo"
 
 # Get current default sink
 CURRENT=$(pactl get-default-sink)

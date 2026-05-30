@@ -1,0 +1,142 @@
+/* ── palette ──────────────────────────────────────────────── */
+@define-color rosewater #f5e0dc;
+@define-color flamingo  #f2cdcd;
+@define-color pink      #f5c2e7;
+@define-color mauve     #cba6f7;
+@define-color red       #f38ba8;
+@define-color maroon    #eba0ac;
+@define-color peach     #fab387;
+@define-color yellow    #f9e2af;
+@define-color green     #a6e3a1;
+@define-color teal      #94e2d5;
+@define-color sky       #89dceb;
+@define-color sapphire  #74c7ec;
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color text      #cdd6f4;
+@define-color subtext1  #bac2de;
+@define-color subtext0  #a6adc8;
+@define-color overlay2  #9399b2;
+@define-color overlay1  #7f849c;
+@define-color overlay0  #6c7086;
+@define-color surface2  #585b70;
+@define-color surface1  #45475a;
+@define-color surface0  #313244;
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+
+/* ── reset everything first ───────────────────────────────── */
+* {
+  font-family: "DepartureMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+
+/* ── single surface: the window itself ────────────────────── */
+window#osd {
+  background: rgba(17, 17, 27, 0.92);
+  border-bottom: 2px solid rgba(116, 199, 236, 0.55);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.50), 0 1px 0 rgba(116, 199, 236, 0.08) inset;
+}
+
+/* container just provides inner spacing, no visuals */
+window#osd #container {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 12px 18px;
+}
+
+/* ── icon ─────────────────────────────────────────────────── */
+window#osd image {
+  color: @sapphire;
+  -gtk-icon-size: 22px;
+  margin-right: 10px;
+}
+
+window#osd image.muted         { color: @overlay0; }
+window#osd image.brightness    { color: @yellow; }
+window#osd image.caps-lock,
+window#osd image.num-lock,
+window#osd image.scroll-lock   { color: @mauve; }
+
+window#osd image:disabled,
+window#osd progressbar:disabled { opacity: 0.4; }
+
+/* ── label ────────────────────────────────────────────────── */
+window#osd label {
+  color: @subtext0;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  margin-bottom: 5px;
+}
+
+/* ── progressbar ──────────────────────────────────────────── */
+window#osd progressbar {
+  min-height: 3px;
+  background: transparent;
+  border: none;
+}
+
+window#osd progressbar trough {
+  min-height: 3px;
+  background: rgba(69, 71, 90, 0.70);
+  border: none;
+}
+
+window#osd progressbar progress {
+  min-height: 3px;
+  border: none;
+  background: @sapphire;
+}
+
+/* muted */
+window#osd progressbar.muted trough   { background: rgba(49, 50, 68, 0.70); }
+window#osd progressbar.muted progress { background: @overlay0; }
+
+/* brightness */
+window#osd progressbar.brightness progress { background: @yellow; }
+
+/* high / max volume */
+window#osd progressbar.high progress { background: @green; }
+
+/* overdrive */
+window#osd progressbar.overdrive trough   { background: rgba(250, 179, 135, 0.15); }
+window#osd progressbar.overdrive progress { background: @peach; }
+
+/* lock keys */
+window#osd progressbar.lock progress { background: @mauve; }
+
+/* ── segmented progress ───────────────────────────────────── */
+window#osd segmentedprogress {
+  min-height: 3px;
+  background: transparent;
+  border: none;
+}
+
+window#osd segmentedprogress segment {
+  min-height: 3px;
+  border: none;
+  margin-left: 2px;
+  background: rgba(69, 71, 90, 0.70);
+}
+
+window#osd segmentedprogress segment:first-child {
+  margin-left: 0;
+}
+
+window#osd segmentedprogress segment.active          { background: @sapphire; }
+window#osd segmentedprogress.brightness segment.active { background: @yellow; }
+window#osd segmentedprogress.high segment.active     { background: @green; }
+window#osd segmentedprogress.overdrive segment.active { background: @peach; }
+window#osd segmentedprogress.muted segment.active    { background: @overlay0; }
+window#osd segmentedprogress.lock segment.active     { background: @mauve; }

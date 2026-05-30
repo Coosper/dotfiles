@@ -3,7 +3,7 @@
 /* ── reset ────────────────────────────────────────── */
 * {
   font-family: "DepartureMono Nerd Font", monospace;
-  font-size: 13.5px;
+  font-size: 13px;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -13,126 +13,157 @@
 
 /* ── bar ──────────────────────────────────────────── */
 #waybar {
-  background: rgba(30, 30, 46, 0.82);
+  background: rgba(24, 24, 37, 0.78);
   color: @text;
-  margin: 8px 12px 0;
-  border-bottom: 1px solid rgba(137, 180, 250, 0.12);
+  margin: 8px 14px 0;
+  border-bottom: 1px solid rgba(137, 180, 250, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
 }
 
-/* ── module base — one place for shared rules ─────── */
+/* ── module base ──────────────────────────────────── */
 #battery,
 #clock,
 #pulseaudio,
 #tray,
 #mpris,
-#custom-power,
 #custom-updates,
-#custom-swaync,
-#custom-audio_toggle,
-#custom-steam-download {
-  padding: 0 0.6rem;
+#custom-swaync {
+  padding: 0 0.75rem;
   background: transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
-#custom-power, #custom-swaync {
-  padding-right: 1rem;
+#custom-swaync {
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
 }
 
 /* ── accent colours ───────────────────────────────── */
 #clock {
   color: @blue;
-  border-bottom: 3px solid @blue;
+  border-bottom: 2px solid rgba(137, 180, 250, 0.6);
 }
 
+#clock:hover  { background: rgba(137, 180, 250, 0.07); }
+#clock:active { background: rgba(137, 180, 250, 0.15); }
+
+/* ── battery ──────────────────────────────────────── */
 #battery {
   color: @yellow;
-  border-bottom: 3px solid @yellow;
+  border-bottom: 2px solid rgba(249, 226, 175, 0.6);
 }
 
-#pulseaudio,
-#custom-audio_toggle {
-  color: @sapphire;
-  border-bottom: 3px solid @sapphire;
-}
+#battery:hover  { background: rgba(249, 226, 175, 0.07); }
+#battery:active { background: rgba(249, 226, 175, 0.15); }
 
-#mpris {
-  color: @mauve;
-  border-bottom: 3px solid @mauve;
-}
-
-#custom-updates,
-#custom-swaync {
-  color: @yellow;
-  border-bottom: 3px solid @yellow;
-}
-
-#tray,
-#custom-power {
-  color: @red;
-  border-bottom: 3px solid @red;
-}
-
-#custom-steam-download {
-  color: @teal;
-  border-bottom: 3px solid @teal;
-}
-
-#custom-cava {
-  color: @mauve;
-}
-
-/* ── battery states ───────────────────────────────── */
 #battery.charging,
 #battery.plugged,
 #battery.full {
   color: @green;
-  border-bottom-color: @green;
+  border-bottom-color: rgba(166, 227, 161, 0.6);
 }
 
 #battery.warning:not(.charging) {
   color: @peach;
-  border-bottom-color: @peach;
+  border-bottom-color: rgba(250, 179, 135, 0.6);
 }
 
 #battery.critical:not(.charging) {
   color: @red;
-  border-bottom-color: @red;
+  border-bottom-color: rgba(243, 139, 168, 0.6);
+}
+
+/* ── audio ────────────────────────────────────────── */
+#pulseaudio {
+  color: @sapphire;
+  border-bottom: 2px solid rgba(116, 199, 236, 0.6);
+}
+
+#pulseaudio:hover  { background: rgba(116, 199, 236, 0.07); }
+#pulseaudio:active { background: rgba(116, 199, 236, 0.15); }
+
+#pulseaudio.muted {
+  color: @overlay0;
+  border-bottom-color: rgba(108, 112, 134, 0.35);
+}
+
+/* ── media ────────────────────────────────────────── */
+#mpris {
+  color: @mauve;
+  border-bottom: 2px solid rgba(203, 166, 247, 0.6);
+}
+
+#mpris:hover  { background: rgba(203, 166, 247, 0.07); }
+#mpris:active { background: rgba(203, 166, 247, 0.15); }
+
+/* ── updates ──────────────────────────────────────── */
+#custom-updates {
+  color: @yellow;
+  border-bottom: 2px solid rgba(249, 226, 175, 0.6);
+}
+
+#custom-updates:hover  { background: rgba(249, 226, 175, 0.07); }
+#custom-updates:active { background: rgba(249, 226, 175, 0.15); }
+
+/* ── tray ─────────────────────────────────────────── */
+#tray {
+  color: @red;
+  border-bottom: 2px solid rgba(243, 139, 168, 0.6);
+}
+
+#tray:hover  { background: rgba(243, 139, 168, 0.07); }
+#tray:active { background: rgba(243, 139, 168, 0.15); }
+
+/* ── swaync ───────────────────────────────────────── */
+#custom-swaync {
+  color: @green;
+  border-bottom: 2px solid rgba(166, 227, 161, 0.6);
+}
+
+#custom-swaync:hover  { background: rgba(166, 227, 161, 0.07); }
+#custom-swaync:active { background: rgba(166, 227, 161, 0.15); }
+
+#custom-swaync.dnd-none,
+#custom-swaync.dnd-notification {
+  color: @overlay0;
+  border-bottom-color: rgba(108, 112, 134, 0.35);
 }
 
 /* ── workspaces ───────────────────────────────────── */
 #workspaces button {
   background: transparent;
   color: @green;
-  border-bottom: 3px solid @green;
-  padding: 0 1rem;
+  border-bottom: 2px solid rgba(166, 227, 161, 0.5);
+  padding: 0 0.9rem;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 #workspaces button:hover {
-  background: rgba(166, 227, 161, 0.1);
+  background: rgba(166, 227, 161, 0.07);
+}
+
+#workspaces button:active {
+  background: rgba(166, 227, 161, 0.15);
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background: rgba(137, 180, 250, 0.12);
+  background: rgba(137, 180, 250, 0.1);
   color: @blue;
-  border-bottom-color: @blue;
+  border-bottom-color: rgba(137, 180, 250, 0.75);
+}
+
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
+  background: rgba(137, 180, 250, 0.17);
 }
 
 #workspaces button.urgent {
-  background: rgba(243, 139, 168, 0.15);
+  background: rgba(243, 139, 168, 0.12);
   color: @red;
-  border-bottom-color: @red;
+  border-bottom-color: rgba(243, 139, 168, 0.6);
 }
 
-#custom-swaync {
-  color: @green;
-  border-bottom-color: @green;
-}
-
-#custom-swaync.dnd-none,
-#custom-swaync.dnd-notification {
-  color: @overlay0;
-  border-bottom-color: @overlay0;
+#workspaces button.urgent:hover {
+  background: rgba(243, 139, 168, 0.2);
 }

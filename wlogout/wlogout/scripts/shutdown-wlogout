@@ -1,4 +1,0 @@
-#!/bin/bash
-hyprlock &
-sleep 6
-systemctl poweroff

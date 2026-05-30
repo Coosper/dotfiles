@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "script started" >> /tmp/shutdown.log
+hyprctl dispatch exec hyprlock
+echo "hyprlock done" >> /tmp/shutdown.log
+sleep 6
+systemctl poweroff
